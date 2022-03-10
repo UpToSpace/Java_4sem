@@ -1,4 +1,5 @@
 package com.company;
+import com.company.admin.Admin;
 import com.company.admin.SortByGas;
 import com.company.cars.Taxi;
 import com.company.cars.Type;
@@ -24,8 +25,12 @@ public class Main {
              ) {
             System.out.println(car);
         }
+
+        Admin admin = new Admin();
+        System.out.println(admin.CountPrice(cars));
+        admin.SortByGas(cars);
+        admin.SearchCar(cars, 220, 300);
         Log.log(Level.INFO, "Sorting arraylist");
-        Collections.sort(cars, new SortByGas());
         for (Car car:cars
         ) {
             System.out.println(car);

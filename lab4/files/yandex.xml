@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Cars>
+<Taxi>
+    <price>500</price>
+    <gas>1.4</gas>
+    <speed>400</speed>
+    <type>BUSINESS</type>
+</Taxi>
+<Bus>
+    <price>30</price>
+    <gas>7.9</gas>
+    <speed>70</speed>
+    <passangers>72</passangers>
+</Bus>
+</Cars>

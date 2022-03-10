@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="Cars">
+        <xs:complexType>
+            <xs:sequence>
+    <xs:element name="Taxi">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="price" type="xs:int"/>
+                <xs:element name="gas" type="xs:double"/>
+                <xs:element name="speed" type ="xs:int"/>
+                <xs:element name="type" type ="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="Bus">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="price" type="xs:int"/>
+                <xs:element name="gas" type="xs:double"/>
+                <xs:element name="speed" type ="xs:int"/>
+                <xs:element name="passangers" type ="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
