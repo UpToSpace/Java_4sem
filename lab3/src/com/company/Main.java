@@ -15,7 +15,7 @@ public class Main {
         Log = Logger.getLogger(Main.class.getName());
     }
     public static void main(String[] args) throws Exception {
-        Log.log(Level.INFO, "Creating arraylist");
+        Log.log(Level.WARNING, "Creating arraylist");
 
         ArrayList<Car> cars = new ArrayList<Car>();
         cars.add(new Taxi(1000, 20.9, 370, Type.BUSINESS));

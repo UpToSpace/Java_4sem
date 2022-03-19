@@ -1,5 +1,6 @@
 package com.company;
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.company.admin.Admin;
 import com.company.admin.SortByGas;
 import com.company.cars.Taxi;
@@ -7,6 +8,7 @@ import com.company.cars.Type;
 import com.company.parser.Parser;
 
 import java.io.*;
+import java.util.Scanner;
 import java.util.stream.*;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
@@ -19,7 +21,7 @@ import javax.xml.transform.stream.StreamSource;
 import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
 import javax.xml.validation.Validator;
-// TODO deserialization, jar utility
+
 public class Main {
     static Logger Log;
     public static void main(String[] args) throws Exception {
@@ -51,22 +53,40 @@ public class Main {
 
         // serialization
         String filePath = "./files/cars.json";
-        FileOutputStream out = new FileOutputStream(filePath);
+
+        BufferedWriter inFile = new BufferedWriter(new FileWriter(filePath));
         for (Car car:cars
         ) {
-            out.write((JSON.toJSONString(car) + "\n").getBytes(StandardCharsets.UTF_8));
+            inFile.write(JSON.toJSONString(car) + "\n");
         }
-        out.close();
+        inFile.flush();
+        inFile.close();
 
         // deserialization
-/*        FileInputStream file = new FileInputStream(filePath);
-        ObjectInputStream in = new ObjectInputStream(file);
-        cars.clear();*/
-/*        while (inFile.read() != -1)
+
+        cars.clear();
+        try(BufferedReader outFile = new BufferedReader(new FileReader(filePath)))
         {
-            Car car = JSON.parseObject(inFile.readObject().toString(), Car.class);
-            cars.add(car);
-        }*/
+            while(true)
+            {
+                String str = outFile.readLine();
+                if (str == null)
+                {
+                    break;
+                }
+                System.out.println(str);
+                cars.add(JSON.parseObject(str, Taxi.class));
+            }
+        }
+        catch(Exception e)
+        {
+            System.out.println(e.getMessage());
+        }
+        System.out.println("--------After Deserialization----------");
+        for (Car car: cars) {
+            System.out.println(car);
+        }
+        System.out.println("--------Streaming API----------");
         cars.stream().filter(e -> e.getPrice() < 500).forEach(e -> System.out.println(e));
     }
 }
