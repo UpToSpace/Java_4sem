@@ -55,3 +55,16 @@ insert into Weather values
 ('Москва', '2022-01-07' , -9 , 18 ),
 ('Варшава', '2022-02-15' , -5 , 174 ),
 ('Вильнюс', '2021-07-21' , 23 , 9 )
+
+
+
+
+create table Users
+(
+login varchar(30) primary key,
+password varchar(30),
+role varchar(10)
+)
+
+insert into Users values
+('user', '12345', 'user')
