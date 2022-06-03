@@ -1,0 +1,13 @@
+com\example\laba9\classes\User.class
+com\example\laba9\filters\LoginFilter.class
+com\example\laba9\classes\Gamers.class
+com\example\laba9\classes\Validation.class
+com\example\laba9\classes\DatabaseConnector.class
+com\example\laba9\servlets\HomeServlet.class
+com\example\laba9\classes\Database.class
+com\example\laba9\servlets\LoginServlet.class
+com\example\laba9\servlets\DeleteServlet.class
+com\example\laba9\servlets\InfoServlet.class
+com\example\laba9\servlets\UpdateServlet.class
+com\example\laba9\servlets\AddServlet.class
+com\example\laba9\servlets\RegistrationServlet.class
